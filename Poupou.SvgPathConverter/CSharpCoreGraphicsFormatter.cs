@@ -19,6 +19,41 @@ namespace Poupou.SvgPathConverter {
 		{
 			writer = textWriter;
 		}
+
+		public void Header()
+		{
+			writer.WriteLine ("// note: Generated file - do not modify - use convert-font-awesome to regenerate");
+			writer.WriteLine ();
+			writer.WriteLine ("using MonoTouch.CoreGraphics;");
+			writer.WriteLine ("using MonoTouch.Dialog;");
+			writer.WriteLine ("using MonoTouch.Foundation;");
+			writer.WriteLine ("using MonoTouch.UIKit;");
+			writer.WriteLine ();
+			writer.WriteLine ("namespace Poupou.Awesome.Demo {");
+			writer.WriteLine ();
+			writer.WriteLine ("\t[Preserve]");
+			writer.WriteLine ("\tpublic partial class Elements {");
+		}
+
+		public void ElementStats (int count)
+		{
+			writer.WriteLine ("\t\t// total: {0}", count);
+			writer.WriteLine ();
+		}
+
+		public void Footer()
+		{
+			writer.WriteLine ("\t}");
+			writer.WriteLine ("}");
+			writer.Close ();
+		}
+
+		public void NewElement (string name, string value)
+		{
+			writer.WriteLine ("\t\t// {0} : {1}", name, value);
+			writer.WriteLine ("\t\tImageStringElement {0}_element = new ImageStringElement (\"{0}\", GetAwesomeIcon ({0}));", name);
+			writer.WriteLine ();
+		}
 		
 		public void Prologue (string name)
 		{

@@ -11,7 +11,11 @@ using System.Drawing;
 namespace Poupou.SvgPathConverter {
 	
 	public interface ISourceFormatter {
-	
+		void Header();
+		void Footer();
+		void NewElement (string name, string value);
+		void ElementStats (int count);
+
 		void Prologue (string name);
 		void Epilogue ();
 	

@@ -38,6 +38,7 @@
     <Compile Include="SvgPathParser.cs" />
     <Compile Include="CSharpCoreGraphicsFormatter.cs" />
     <Compile Include="FormatterRocks.cs" />
+    <Compile Include="AndroidFormatter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
